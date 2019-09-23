@@ -27,7 +27,7 @@ class PlayState extends Phaser.State {
 	this.add.image(-15,0, 'score');
 	this.add.button(450, 60, 'button-pause', this.managePause, this).anchor.setTo(0.5, 0.8);;
     
-    this.board = new Board(this.game, 8, 7, 7, 45, 2, 2);
+    this.board = new Board(this.game, 8, 7, 7, 45, 2, 2, 0);
     this.board.x = this.game.world.centerX - this.board.width  / 2;
     this.board.y = this.game.world.centerY - this.board.height / 4;
 
