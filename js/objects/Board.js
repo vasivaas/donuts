@@ -2,11 +2,11 @@ import Grid  from './Grid.js';
 import Field from './Field.js';
 import Block from './Block.js';
 
-var score = 0;
+
 
 class Board extends Phaser.Group {
 
-  constructor(game, numCols = 2, numRows = 2, numBlockTypes = 3, contentSize = 1, padding = 1, gap = 0) {
+  constructor(game, numCols = 2, numRows = 2, numBlockTypes = 3, contentSize = 1, padding = 1, gap = 0, score = 0) {
     super(game, null);
 
     
@@ -16,7 +16,7 @@ class Board extends Phaser.Group {
     this.contentSize   = contentSize;
     this.padding       = padding;
     this.gap           = gap;
-
+	this.score         = score;
     
     this.isInteractive = true;
 
@@ -186,8 +186,8 @@ class Board extends Phaser.Group {
       numChained++;
 
       block.kill();
-	  score = score + 3;
-	  console.log(score);
+	  this.score = this.score + 1;
+	  console.log(this.score);
 	  
       this.grid.setAt(x, y, undefined);
     });
