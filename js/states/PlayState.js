@@ -62,8 +62,17 @@ class PlayState extends Phaser.State {
         soundImg.tint = 0xffffff;
     }
 }
+	update() {
 
-  
+    this.input.onDown.addOnce(this.updateText, this);
+
+}
+
+
+ updateText() {
+    scoreText.setText(this.board.score);
+ }
+ 
   managePause(){
 		
 		this.game.paused = true;
@@ -77,7 +86,7 @@ class PlayState extends Phaser.State {
 			this.game.paused = false;
 		}, this);
 	}
-
+	
     
     updateTimer() {
         this.timeInSeconds--;
