@@ -24,8 +24,8 @@ class PlayState extends Phaser.State {
     
     this.bg = this.add.sprite(0, 0, "background");
 	
-	this.add.image(-15,0, 'score');
-	this.add.button(450, 60, 'button-pause', this.managePause, this).anchor.setTo(0.5, 0.8);;
+    this.add.image(-15,0, 'score');
+    this.add.button(450, 60, 'button-pause', this.managePause, this).anchor.setTo(0.5, 0.8);;
     
     this.board = new Board(this.game, 8, 7, 7, 45, 2, 2, 0);
     this.board.x = this.game.world.centerX - this.board.width  / 2;
@@ -35,20 +35,20 @@ class PlayState extends Phaser.State {
     this.game.world.add(this.bg);
     this.game.world.add(this.board);
 
-	scoreText = this.add.text(90, 25, this.board.score, { font: "35px Fredoka One", fill: "#ffffff"});
+    scoreText = this.add.text(90, 25, this.board.score, { font: "35px Fredoka One", fill: "#ffffff"});
 	
-	this.timeInSeconds = 25;
+    this.timeInSeconds = 25;
     this.timeText = this.game.add.text(195, 28, "",{font: '35px Fredoka One', fill:'#000000'});
     this.timer = this.game.time.events.loop(Phaser.Timer.SECOND, this.updateTimer, this);
 	
-	this.add.button(450, 140, 'sound', this.soundOnOff, this, 2, 1, 0).anchor.setTo(0.5, 0.8);
+    this.add.button(450, 140, 'sound', this.soundOnOff, this, 2, 1, 0).anchor.setTo(0.5, 0.8);
 	
 	if (!audioBackground) {
             audioBackground = this.add.audio('startMusic', 1, true).play();
         }
   }
   
-   soundOnOff(soundImg) {
+soundOnOff(soundImg) {
     if (audioBackground.isPlaying) {
         audioBackground.stop();
         soundImg.alpha = 0.5;
@@ -70,7 +70,7 @@ update() {
     scoreText.setText(this.board.score);
  }
  
-  managePause(){
+ managePause(){
 		
 		this.game.paused = true;
 		
@@ -85,7 +85,7 @@ update() {
 	}
 	
     
-    updateTimer() {
+updateTimer() {
         this.timeInSeconds--;
         var minutes = Math.floor(this.timeInSeconds / 60);
         var seconds = this.timeInSeconds - (minutes * 60);
@@ -99,7 +99,7 @@ update() {
 			this.state.start("GameTimer");
         }
     }
-    addZeros(num) {
+addZeros(num) {
         if (num < 10) {
             num = "0" + num;
         }
