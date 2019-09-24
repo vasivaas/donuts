@@ -3,7 +3,7 @@ import Board from '../objects/Board.js';
 import Grid  from '../objects/Grid.js';
 
 let gameOverText;
-var scoreText;
+let scoreText;
 let audioKill,
     audioBackground;
 	
@@ -46,9 +46,6 @@ class PlayState extends Phaser.State {
 	if (!audioBackground) {
             audioBackground = this.add.audio('startMusic', 1, true).play();
         }
-	if(this.kill === true) {
-			
-		}
   }
   
    soundOnOff(soundImg) {
@@ -62,7 +59,7 @@ class PlayState extends Phaser.State {
         soundImg.tint = 0xffffff;
     }
 }
-	update() {
+update() {
 
     this.input.onDown.addOnce(this.updateText, this);
 
